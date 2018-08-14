@@ -1,14 +1,13 @@
 # python-web
 
-Flask RESTful Plus: http://flask-restplus.readthedocs.io/en/stable/
+Flask RESTful Plus: https://flask-restplus.readthedocs.io/en/stable/quickstart.html#
 
-
-
-## Getting up and runningon OSX
-1. Have x-code installed. (for the GCC)
+## Getting up and running on OSX
+1. Have x-code installed. (for GCC)
 2. Install Homebrew
 ```
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew upgrade
 ```
 
 3. Export Homebrew PATH in `~/.profile`: 
@@ -16,40 +15,49 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 ```
 
-4. Install python 3
+4. Install python (version 3 by default)
 ```
-$ brew install python
-```
-
-5. Export python PATH in `~/.bash_profile`
-```
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+brew install python
 ```
 
-6. Check version
+5. Export python PATH in `~/.bash_profile`. Make sure there aren't any other PATH settings there.
 ```
-$ python --version
+export PATH=/usr/local/opt/python/libexec/bin:~/Library/Python/3.7/bin:$PATH
+```
+
+6. Run the following in the terminal:
+```
+source ~/.bash_profile
+```
+
+7. Restart terminal. Check versions
+```
+python --version
 > Python 3.7.0
+pip --version
+> pip 18.0 from /usr/local/lib/python3.7/site-packages/pip (python 3.7)
 ```
 
-7. Install pip with Homebrew
+8. Install pipenv with pip (pip3 should have been installed as part of installing python)
 ```
-$ brew install pip
-```
-
-8. Install pipenv with pip
-```
-$ pip install --user pipenv
+pip install --user pipenv
 ```
 
-9. At the project root, install packages:
+9. Enter the virtualenv, and install dependencies:
 ```
-$ pipenv install
+pipenv shell
+pipenv install
 ```
+
+10. Run the app:
+```
+python src/app.py
+```
+
 
 ### Adding dependencies with pipenv
 ```
-$ pipenv install <package-name>
+pipenv install <package-name>
 ```
 
 
