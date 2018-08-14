@@ -1,13 +1,12 @@
-from flask import Flask, Blueprint
-from flask_restplus import Namespace, fields, Resource
+from flask_restplus import Namespace, Resource
 from stellar_base.address import Address
 
 api = Namespace('wallet', description='Wallet operations')
 
-@api.route('/<string:address>')
-class Address(Resource):
-    def get(self, address):
-        address = Address(address=address, network='public')
+@api.route('/<string:publickey>')
+class WalletAddress(Resource):
+    def get(self, publickey):
+        address = Address(address=publickey, network='public')
         address.get()  # get the updated information
         return {
             'balances': address.balances
@@ -15,7 +14,7 @@ class Address(Resource):
 
 
 @api.route('/<string:address>/payments')
-class Payments(Resource):
+class WalletPayments(Resource):
     def get(self, id):
         return {id: id}
 

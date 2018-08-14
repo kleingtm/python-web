@@ -1,5 +1,5 @@
 from flask import Flask, Blueprint
-from flask_restplus import Resource, Api
+from flask_restplus import Api
 from src.wallet import api as wallet
 
 app = Flask(__name__) # instantiate flask app

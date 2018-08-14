@@ -9,6 +9,7 @@ simplejson = "*"
 flask-restplus = "*"
 cython = "*"
 numpy = "*"
+stellar-base = "*"
 
 [dev-packages]
 
